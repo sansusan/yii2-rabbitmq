@@ -214,6 +214,7 @@ class RabbitPeclAmqp
      */
     public function send($message, $headers = [])
     {
+        $q = $this->queue;
         $ex = $this->initExchange();
         return $ex->publish($message, $this->sendQueueName, AMQP_NOPARAM, [
             'delivery_mode' => 2,
